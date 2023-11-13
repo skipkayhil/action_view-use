@@ -11,3 +11,6 @@ gem "minitest", "~> 5.0"
 
 gem "rubocop", "~> 1.21"
 gem "rubocop-rails_config"
+
+# ActionView::TestCase depends on action_controller
+gem "actionpack"
