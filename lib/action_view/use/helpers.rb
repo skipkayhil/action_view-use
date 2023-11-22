@@ -18,7 +18,7 @@ module ActionView
 
         used_symbol_set.each do |name|
           html << '<symbol id="' << name << '">'
-          html << render(partial: +"symbols/" << name, formats: [:svg])
+          html << render(file: symbol_path(name), formats: [:svg])
           html << "</symbol>"
         end
 
@@ -29,6 +29,10 @@ module ActionView
       private
         def used_symbol_set
           @used_symbol_set ||= Set.new
+        end
+
+        def symbol_path(name)
+          Rails.root.join("app", "views", "symbols", name + ".svg")
         end
     end
   end
