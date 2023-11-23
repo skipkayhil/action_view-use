@@ -24,7 +24,7 @@ Add `all_used_symbols` to the end of the `<body>` in
 Create SVG symbols to use in your views:
 
 ```erb
-<%# app/views/symbols/logo.svg.erb %>
+<%# app/views/symbols/logo.svg %>
 <svg>
   <!--- logo content -->
 </svg>
