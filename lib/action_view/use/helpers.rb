@@ -3,11 +3,11 @@
 module ActionView
   module Use
     module Helpers
-      def use_symbol(name)
+      def use_symbol(name, escape: true, **opts)
         used_symbol_set << name
 
         <<~HTML.html_safe
-          <svg xmlns="http://www.w3.org/2000/svg">
+          <svg xmlns="http://www.w3.org/2000/svg" #{tag_builder.tag_options(opts, escape)}>
             <use href="##{name}" />
           </svg>
         HTML

@@ -73,5 +73,13 @@ module ActionView::Use
         </svg>
       HTML
     end
+
+    test "use_symbol will use provided attributes" do
+      assert_dom_equal <<~HTML, use_symbol("icons/home", class: "some-class", hidden: true)
+        <svg xmlns="http://www.w3.org/2000/svg" class="some-class" hidden="hidden">
+          <use href="#icons/home" />
+        </svg>
+      HTML
+    end
   end
 end
