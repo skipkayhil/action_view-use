@@ -32,7 +32,8 @@ module ActionView
         end
 
         def symbol_path(name)
-          Rails.root.join("app", "views", "symbols", name + ".svg")
+            byebug
+          ActionView::Use.symbols_root.join(name + ".svg")
         end
     end
   end
