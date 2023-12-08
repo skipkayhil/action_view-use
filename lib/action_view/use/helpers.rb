@@ -18,7 +18,7 @@ module ActionView
 
         used_symbol_set.each do |name|
           html << '<symbol id="' << name << '">'
-          html << render(partial: +"symbols/" << name, formats: [:svg])
+          html << SymbolRenderer.new(lookup_context).render(self, name).body
           html << "</symbol>"
         end
 

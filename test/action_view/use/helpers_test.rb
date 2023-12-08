@@ -21,9 +21,9 @@ module ActionView::Use
     test "all_used_symbols renders a used symbol" do
       view.lookup_context.prepend_view_paths ["test/fixtures/views"]
 
-      use_symbol "circle"
+      view.use_symbol "circle"
 
-      assert_dom_equal <<~HTML, all_used_symbols
+      assert_dom_equal <<~HTML, view.all_used_symbols
         <svg xmlns="http://www.w3.org/2000/svg">
           <symbol id="circle">
             <svg xmlns="http://www.w3.org/2000/svg">
@@ -37,11 +37,11 @@ module ActionView::Use
     test "all_used_symbols renders a used symbol only once" do
       view.lookup_context.prepend_view_paths ["test/fixtures/views"]
 
-      use_symbol "circle"
-      use_symbol "circle"
-      use_symbol "circle"
+      view.use_symbol "circle"
+      view.use_symbol "circle"
+      view.use_symbol "circle"
 
-      assert_dom_equal <<~HTML, all_used_symbols
+      assert_dom_equal <<~HTML, view.all_used_symbols
         <svg xmlns="http://www.w3.org/2000/svg">
           <symbol id="circle">
             <svg xmlns="http://www.w3.org/2000/svg">
@@ -55,10 +55,10 @@ module ActionView::Use
     test "all_used_symbols renders multiple symbols" do
       view.lookup_context.prepend_view_paths ["test/fixtures/views"]
 
-      use_symbol "icons/square"
-      use_symbol "circle"
+      view.use_symbol "icons/square"
+      view.use_symbol "circle"
 
-      assert_dom_equal <<~HTML, all_used_symbols
+      assert_dom_equal <<~HTML, view.all_used_symbols
         <svg xmlns="http://www.w3.org/2000/svg">
           <symbol id="icons/square">
             <svg xmlns="http://www.w3.org/2000/svg">
