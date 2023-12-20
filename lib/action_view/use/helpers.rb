@@ -14,7 +14,7 @@ module ActionView
       end
 
       def all_used_symbols
-        html = +"" << '<svg xmlns="http://www.w3.org/2000/svg">'
+        html = +"" << '<svg xmlns="http://www.w3.org/2000/svg" display="none">'
 
         used_symbol_set.each do |name|
           html << '<symbol id="' << name << '">'

@@ -14,7 +14,7 @@ module ActionView::Use
 
     test "all_used_symbols works with no used symbols" do
       assert_dom_equal <<~HTML, all_used_symbols
-        <svg xmlns="http://www.w3.org/2000/svg"></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" display="none"></svg>
       HTML
     end
 
@@ -24,7 +24,7 @@ module ActionView::Use
       view.use_symbol "circle"
 
       assert_dom_equal <<~HTML, view.all_used_symbols
-        <svg xmlns="http://www.w3.org/2000/svg">
+        <svg xmlns="http://www.w3.org/2000/svg" display="none">
           <symbol id="circle">
             <svg xmlns="http://www.w3.org/2000/svg">
               <circle cx="5" cy="5" r="5" />
@@ -42,7 +42,7 @@ module ActionView::Use
       view.use_symbol "circle"
 
       assert_dom_equal <<~HTML, view.all_used_symbols
-        <svg xmlns="http://www.w3.org/2000/svg">
+        <svg xmlns="http://www.w3.org/2000/svg" display="none">
           <symbol id="circle">
             <svg xmlns="http://www.w3.org/2000/svg">
               <circle cx="5" cy="5" r="5" />
@@ -59,7 +59,7 @@ module ActionView::Use
       view.use_symbol "circle"
 
       assert_dom_equal <<~HTML, view.all_used_symbols
-        <svg xmlns="http://www.w3.org/2000/svg">
+        <svg xmlns="http://www.w3.org/2000/svg" display="none">
           <symbol id="icons/square">
             <svg xmlns="http://www.w3.org/2000/svg">
               <rect x="10" y="10" width="10" height="10"/>
